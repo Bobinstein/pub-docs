@@ -10,6 +10,7 @@ module.exports = {
    */
   title: "ArDrive Docs",
   base: '/',
+  routerMode: 'hash',
 
 
   /**

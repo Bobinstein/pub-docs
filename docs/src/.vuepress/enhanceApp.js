@@ -18,7 +18,7 @@ export default ({
       this.$store = store;
     },
   });
-
+  router.options.mode = 'hash'
   // ...apply other enhancements for the site.
 }
 
