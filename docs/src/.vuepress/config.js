@@ -9,7 +9,7 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
   title: "ArDrive Docs",
-  base: '/',
+  base: './',
   routerMode: 'hash',
 
 
@@ -47,6 +47,22 @@ module.exports = {
         "data-domain": "docs.ardrive.io",
       },
     ],
+    [
+      "script",
+      {},
+      `
+        window.addEventListener('DOMContentLoaded', (event) => {
+          // check if we're on an Arweave gateway
+          const arweaveGateways = ['arweave.net', 'bobinstein.com']; // add other known gateways if necessary
+          if (arweaveGateways.includes(window.location.hostname)) {
+            // get the txid from the URL
+            const txid = window.location.pathname.split('/')[1];
+
+            console.log('site accessed using ' + txid);
+          }
+        });
+      `
+    ]
   ],
 
   /**
@@ -63,7 +79,7 @@ module.exports = {
     lastUpdated: false,
     initialOpenGroupIndex: -1,
     //logo path will need to be adjusted for deployment
-    logo: "/images/ArDrive-Logo.png",
+    logo: "images/ArDrive-Logo.png",
     // nav: nav_config,
     sidebar: {
       // "/docs/cli/": CLI_sidebar_config,

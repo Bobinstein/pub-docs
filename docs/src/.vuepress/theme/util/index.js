@@ -9,6 +9,7 @@ export function normalize (path) {
     .replace(extRE, '')
 }
 
+
 export function getHash (path) {
   const match = path.match(hashRE)
   if (match) {
